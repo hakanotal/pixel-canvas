@@ -3,7 +3,7 @@ const screenHeight = 640;
 const size = 20;
 const width = screenWidth/size;
 const height = screenHeight/size;
-const address = 'http://localhost:3000';
+const address = 'http://localhost:5000';
 
 let socket;
 let grid = [];

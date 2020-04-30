@@ -1,0 +1,27 @@
+{
+  "name": "pixel-canvas",
+  "version": "1.0.0",
+  "description": "This project was coded with [p5.JS](https://p5js.org/).",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "firebase": "^7.14.2",
+    "p5": "^0.10.2",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ituitis-otal18/pixel-canvas.git"
+  },
+  "author": "Hakan Otal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ituitis-otal18/pixel-canvas/issues"
+  },
+  "homepage": "https://github.com/ituitis-otal18/pixel-canvas#readme"
+}
