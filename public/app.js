@@ -3,7 +3,7 @@ const screenHeight = 640;
 const size = 20;
 const width = screenWidth/size;
 const height = screenHeight/size;
-const address = 'http://localhost:5000';
+const address = 'https://pixel-canvas.herokuapp.com/';
 
 let socket;
 let grid = [];
