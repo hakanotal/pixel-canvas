@@ -1,14 +1,14 @@
 //APP
-const screenWidth = 640;
+const screenWidth = 1280;
 const screenHeight = 640;
 const size = 20;
 const width = screenWidth/size;
 const height = screenHeight/size;
 
 let grid = [];
-for(let y=0; y<width; y++){
+for(let y=0; y<height; y++){
     grid[y] = [];
-    for(let x=0; x<height; x++){
+    for(let x=0; x<width; x++){
       grid[y][x] = [100, 100, 100];
     }
 }
@@ -61,28 +61,25 @@ io.sockets.on('connection', function (socket) {
     console.log("We have a new client: " + socket.id);
 	socket.emit('init', grid);
 
-    socket.on('paint', function(data) {
-		//console.log("Received:'paint' pos:" + data.x + " " + data.y+ " rgb:" + data.r+ " " + data.g+ " " + data.b);
-		grid[data.y][data.x] = [data.r, data.g, data.b];
-        //socket.broadcast.emit('update', data);
-		io.sockets.emit('update', data);
-		save_to_database()
-      }
-	);
+  socket.on('paint', function(data) {
+  //console.log("Received:'paint' pos:" + data.x + " " + data.y+ " rgb:" + data.r+ " " + data.g+ " " + data.b);
+  grid[data.y][data.x] = [data.r, data.g, data.b];
+      //socket.broadcast.emit('update', data);
+  io.sockets.emit('update', data);
+  save_to_database()
+  });
 	
 	socket.on('clear', function(data) {
-        for(let y=0; y<width; y++){
-			for(let x=0; x<height; x++){
+    for(let y=0; y<height; y++){
+			for(let x=0; x<width; x++){
 				grid[y][x] = [data.r, data.g, data.b];
 			}
 		}
 		io.sockets.emit('init', grid);
 		save_to_database()
-      }
-    );
-    
-    socket.on('disconnect', function() {
-      console.log("Client has disconnected");
     });
-  }
-);
+    
+  socket.on('disconnect', function() {
+    console.log("Client has disconnected");
+  });
+});
